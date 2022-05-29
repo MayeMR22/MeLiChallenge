@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Product View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="ProductList" id="Y6W-OH-hqX" customClass="ProductViewController" customModule="MeliChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cts-mD-0in">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F0h-62-O7Q">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="124"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eYO-nb-y1m" customClass="MeLiCustomNavigationBar" customModule="MeliChallenge" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="44" width="414" height="80"/>
+                                                <color key="backgroundColor" red="1" green="0.90196078430000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="dc6-aL-34d"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="0.90196078430000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="eYO-nb-y1m" firstAttribute="leading" secondItem="F0h-62-O7Q" secondAttribute="leading" id="FV1-6O-aKa"/>
+                                            <constraint firstAttribute="bottom" secondItem="eYO-nb-y1m" secondAttribute="bottom" id="JQJ-pZ-t9A"/>
+                                            <constraint firstAttribute="trailing" secondItem="eYO-nb-y1m" secondAttribute="trailing" id="RLx-k7-vX8"/>
+                                        </constraints>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vcc-6C-Qvh">
+                                        <rect key="frame" x="0.0" y="124" width="414" height="772"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProductViewCell" id="2Ip-W1-XVg" customClass="ProductViewCell" customModule="MeliChallenge" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Ip-W1-XVg" id="cNn-Jq-QHn">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <sections/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="vcc-6C-Qvh" secondAttribute="trailing" id="NCs-dB-i4Y"/>
+                                    <constraint firstItem="vcc-6C-Qvh" firstAttribute="top" secondItem="F0h-62-O7Q" secondAttribute="bottom" id="NXU-Ui-FKV"/>
+                                    <constraint firstItem="F0h-62-O7Q" firstAttribute="leading" secondItem="Cts-mD-0in" secondAttribute="leading" id="cLZ-Mg-3sE"/>
+                                    <constraint firstItem="vcc-6C-Qvh" firstAttribute="leading" secondItem="Cts-mD-0in" secondAttribute="leading" id="eOQ-gH-mND"/>
+                                    <constraint firstAttribute="trailing" secondItem="F0h-62-O7Q" secondAttribute="trailing" id="qZ5-ne-Aph"/>
+                                    <constraint firstItem="F0h-62-O7Q" firstAttribute="top" secondItem="Cts-mD-0in" secondAttribute="top" id="zeY-23-W9y"/>
+                                    <constraint firstAttribute="bottom" secondItem="vcc-6C-Qvh" secondAttribute="bottom" id="zyC-eN-VyG"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Cts-mD-0in" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="EAy-NH-cRf"/>
+                            <constraint firstAttribute="bottom" secondItem="Cts-mD-0in" secondAttribute="bottom" id="LgW-lP-vz4"/>
+                            <constraint firstItem="Cts-mD-0in" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="bIS-un-7fT"/>
+                            <constraint firstAttribute="trailing" secondItem="Cts-mD-0in" secondAttribute="trailing" id="kH8-1w-64E"/>
+                            <constraint firstItem="eYO-nb-y1m" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="r3K-Jx-BWb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="customNavBar" destination="eYO-nb-y1m" id="snP-dP-ej5"/>
+                        <outlet property="productTableView" destination="vcc-6C-Qvh" id="bsa-Lh-uxd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-19" y="56"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
