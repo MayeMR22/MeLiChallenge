@@ -48,9 +48,15 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </tableViewCellContentView>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </tableViewCell>
                                         </prototypes>
                                         <sections/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -63,6 +69,9 @@
                                     <constraint firstItem="F0h-62-O7Q" firstAttribute="top" secondItem="Cts-mD-0in" secondAttribute="top" id="zeY-23-W9y"/>
                                     <constraint firstAttribute="bottom" secondItem="vcc-6C-Qvh" secondAttribute="bottom" id="zyC-eN-VyG"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -74,6 +83,9 @@
                             <constraint firstAttribute="trailing" secondItem="Cts-mD-0in" secondAttribute="trailing" id="kH8-1w-64E"/>
                             <constraint firstItem="eYO-nb-y1m" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="r3K-Jx-BWb"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="customNavBar" destination="eYO-nb-y1m" id="snP-dP-ej5"/>

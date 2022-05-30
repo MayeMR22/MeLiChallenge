@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import SkeletonView
 
 class ProductDetailViewController: MeLiCustomNavigationViewController {
 
@@ -26,7 +27,7 @@ class ProductDetailViewController: MeLiCustomNavigationViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        productDetailViewModel.productDescription(itemId: "MLA811770217")
+        productDetailViewModel.productDescription(itemId: product?.id)
     }
     
     private func setupInitialView() {
@@ -48,10 +49,11 @@ class ProductDetailViewController: MeLiCustomNavigationViewController {
         productDetailViewModel.onDidChangeDescriptionStatus = { [weak self] status in
             switch status {
             case .idle, .loading:
-                print("aaa")
+                self?.view.showAnimatedGradientSkeleton()
             case .success:
                 DispatchQueue.main.async {
                     self?.productDescription.text = self?.productDetailViewModel.productDescription
+                    self?.view.hideSkeleton()
                 }
                 return
             case .failure:

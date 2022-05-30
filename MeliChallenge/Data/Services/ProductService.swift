@@ -20,7 +20,7 @@ extension ProductService: ServiceContract {
     var path: String? {
         switch self {
         case .productByCategory(id: let id):
-            return "sites/MLA/search?category=\(id)"
+            return "sites/MCO/search?category=\(id)"
         case .searchProduct(search: let search):
             let text = search.searchText ?? ""
             let offset = search.offset ?? 0

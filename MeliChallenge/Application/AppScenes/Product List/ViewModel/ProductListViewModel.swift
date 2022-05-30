@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 class ProductListViewModel {
     
@@ -26,11 +25,12 @@ class ProductListViewModel {
     }
     
     func getProductByCategory(id : String?) {
-        productStatus = .loading
         guard let categoryId = id else {
             productStatus = .failure
             return
         }
+        setupShimmerProduct()
+        productStatus = .loading
         producByCategoryUseCase.execute(parameter: .init(categoryId: categoryId)) { [weak self] (product, error)  in
             if error != nil {
                 self?.productStatus = .failure
@@ -43,11 +43,7 @@ class ProductListViewModel {
         }
     }
     
-    func didSelectProduct(navigationController: UINavigationController?, cellForItemAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "ProductDetail", bundle: nil)
-        if let productDetailVC = storyboard.instantiateViewController(withIdentifier: "ProductDetail") as? ProductDetailViewController {
-            productDetailVC.product = productResult[indexPath.row]
-            navigationController?.pushViewController(productDetailVC, animated: true)
-        }
+    func setupShimmerProduct() {
+        self.productResult = Array(repeating: Results.getModelResultBasic(), count: 6)
     }
 }

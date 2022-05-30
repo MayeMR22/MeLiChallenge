@@ -7,6 +7,7 @@ target 'MeliChallenge' do
 
   # Pods for MeliChallenge
 	pod 'SDWebImage'
+	pod 'SkeletonView'
   target 'MeliChallengeTests' do
     inherit! :search_paths
     # Pods for testing

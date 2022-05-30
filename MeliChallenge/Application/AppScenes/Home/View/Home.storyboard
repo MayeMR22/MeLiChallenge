@@ -62,8 +62,14 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </collectionViewCellContentView>
                                                 <size key="customSize" width="128" height="111"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </collectionViewCell>
                                         </cells>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </collectionView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categorias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SrR-YP-kF5">
                                         <rect key="frame" x="20" y="274" width="364" height="24"/>
@@ -87,6 +93,9 @@
                                     <constraint firstItem="b37-Hj-l5v" firstAttribute="leading" secondItem="Zjf-SU-LPC" secondAttribute="leading" constant="20" id="wie-hm-Spf"/>
                                     <constraint firstItem="ptc-jp-foO" firstAttribute="leading" secondItem="Zjf-SU-LPC" secondAttribute="leading" id="yNl-yc-lKN"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -98,6 +107,9 @@
                             <constraint firstAttribute="bottom" secondItem="Zjf-SU-LPC" secondAttribute="bottom" id="xFD-c8-64U"/>
                             <constraint firstItem="Zjf-SU-LPC" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="yKS-KO-NAl"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="a6a-HG-axw"/>
                     <connections>
