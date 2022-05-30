@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class HomeViewController: MeLiCustomNavigationViewController {
     
@@ -16,13 +17,15 @@ class HomeViewController: MeLiCustomNavigationViewController {
         super.viewDidLoad()
         customNavBar.delegate = self
         setupCollectionViews()
-        observerPr()
+        observerCategoryStatus()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.view.showAnimatedGradientSkeleton(transition: .none)
         viewModel.getCategory()
     }
+    
     
     private func setupCollectionViews() {
         categoryCollectionView.delegate = self
@@ -30,13 +33,14 @@ class HomeViewController: MeLiCustomNavigationViewController {
         categoryCollectionView.register(UINib(nibName: Constants.CATEGORY_VIEW_CELL, bundle: nil), forCellWithReuseIdentifier: CategoryViewCell.identifier)
     }
     
-    func observerPr() {
+    func observerCategoryStatus() {
         self.viewModel.onDidChangeCategoryStatus = { [weak self] status in
             switch status {
             case .idle, .loading:
                 print("mostrar shimmer")
             case .success:
                 DispatchQueue.main.async {
+                    self?.view.hideSkeleton()
                     self?.categoryCollectionView.reloadData()
                 }
             case .failure:
@@ -44,10 +48,13 @@ class HomeViewController: MeLiCustomNavigationViewController {
             }
         }
     }
-    
 }
 
-extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension HomeViewController: SkeletonCollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return Constants.CATEGORY_VIEW_CELL
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.categoryList.count
     }
@@ -59,13 +66,17 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.didSelectCategory(navigationController: navigationController, cellForItemAt: indexPath)
+        let storyboard = UIStoryboard(name: "ProductList", bundle: nil)
+        if let productListVC = storyboard.instantiateViewController(withIdentifier: "ProductList") as? ProductViewController {
+            productListVC.productCategory = viewModel.categoryList[indexPath.row]
+            navigationController?.pushViewController(productListVC, animated: true)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let aaa = viewModel.categoryList.count
          let settings: (items: Int, columns: CGFloat, horizontalSpacing: CGFloat, verticalSpacing: CGFloat) = (aaa, 4, 24, 16)
-        let numOfRows = CGFloat(Double(settings.items)/Double(settings.columns)).rounded(.up)
+//        let numOfRows = CGFloat(Double(settings.items)/Double(settings.columns)).rounded(.up)
         let cellWidth = collectionView.bounds.width/settings.columns - ((settings.columns - 1)*settings.horizontalSpacing)/settings.columns
         return CGSize(width: cellWidth, height: 120)
     }

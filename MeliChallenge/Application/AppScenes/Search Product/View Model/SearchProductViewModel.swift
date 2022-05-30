@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 class SearchProductViewModel {
     
@@ -29,6 +28,7 @@ class SearchProductViewModel {
             searchStatus = .failure
             return
         }
+        setupSearchShimmer()
         searchStatus = .loading
         searchProductUseCase.execute(parameter: .init(searchText: search, offset: offset)) { [weak self] (search, error) in
             if error != nil {
@@ -53,6 +53,10 @@ class SearchProductViewModel {
         } else {
             print(offset)
         }
+    }
+    
+    private func setupSearchShimmer() {
+        self.searchProduct.append(Results.getModelResultBasic(shimmer: true))
     }
 }
 // MARK: - Protocols

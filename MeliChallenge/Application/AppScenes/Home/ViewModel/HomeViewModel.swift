@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 class HomeViewModel {
     var categoryList: [Category] = []
@@ -16,12 +15,13 @@ class HomeViewModel {
     var categoryStatus: ProcessStatus = .idle {
         didSet { onDidChangeCategoryStatus?(categoryStatus) }
     }
+    
     init(getCategoryUseCase: GetCategoryUseCase = GetCategoryUseCaseImpl()) {
         self.getCategoryUseCase = getCategoryUseCase
     }
     
-    
     func getCategory() {
+        setupCategoryShimmer()
         categoryStatus = .loading
         getCategoryUseCase.execute { [weak self] (category, error) in
             if error != nil {
@@ -34,11 +34,7 @@ class HomeViewModel {
         }
     }
     
-    func didSelectCategory(navigationController: UINavigationController?, cellForItemAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "ProductList", bundle: nil)
-        if let productListVC = storyboard.instantiateViewController(withIdentifier: "ProductList") as? ProductViewController {
-            productListVC.productCategory = categoryList[indexPath.row]
-            navigationController?.pushViewController(productListVC, animated: true)
-        }
+    func setupCategoryShimmer() {
+        categoryList = Array(repeating: Category.getModelCategoryBasic(), count: 6)
     }
 }

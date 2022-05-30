@@ -18,7 +18,7 @@ extension CategoryService: ServiceContract {
     var path: String? {
         switch self {
         case .category:
-            return "sites/MLA/categories"
+            return "sites/MCO/categories"
         }
     }
     var urlRequest: URLRequest? {

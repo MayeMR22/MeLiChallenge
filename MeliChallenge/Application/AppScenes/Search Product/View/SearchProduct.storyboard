@@ -49,6 +49,45 @@
                                     <constraint firstItem="dNT-Zi-ImT" firstAttribute="centerY" secondItem="Fwa-VJ-tJb" secondAttribute="centerY" id="vBl-i5-xd2"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GM4-W0-GKa">
+                                <rect key="frame" x="0.0" y="124" width="414" height="772"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="skb-a1-dbc">
+                                        <rect key="frame" x="50" y="306.5" width="314" height="159"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xD5-WC-pJr">
+                                                <rect key="frame" x="107" y="8.5" width="100" height="98.5"/>
+                                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="6eI-U4-b9w"/>
+                                                    <constraint firstAttribute="height" constant="100" id="Q6d-rU-gxP"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No encontramos resultados para tu busqueda." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJN-6W-ZxO">
+                                                <rect key="frame" x="0.0" y="118" width="314" height="41"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="DJN-6W-ZxO" firstAttribute="top" secondItem="xD5-WC-pJr" secondAttribute="bottom" constant="10" id="5Dk-sI-6em"/>
+                                            <constraint firstAttribute="bottom" secondItem="DJN-6W-ZxO" secondAttribute="bottom" id="HJQ-ye-nz3"/>
+                                            <constraint firstAttribute="trailing" secondItem="DJN-6W-ZxO" secondAttribute="trailing" id="QhS-qI-g3C"/>
+                                            <constraint firstItem="DJN-6W-ZxO" firstAttribute="leading" secondItem="skb-a1-dbc" secondAttribute="leading" id="RaV-A9-vFD"/>
+                                            <constraint firstItem="xD5-WC-pJr" firstAttribute="top" secondItem="skb-a1-dbc" secondAttribute="top" constant="8" id="fwH-Xa-3X9"/>
+                                            <constraint firstItem="xD5-WC-pJr" firstAttribute="centerX" secondItem="skb-a1-dbc" secondAttribute="centerX" id="tMz-zM-DWb"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="skb-a1-dbc" secondAttribute="trailing" constant="50" id="6Bp-ys-bZ8"/>
+                                    <constraint firstItem="skb-a1-dbc" firstAttribute="centerY" secondItem="GM4-W0-GKa" secondAttribute="centerY" id="94d-FN-lfb"/>
+                                    <constraint firstItem="skb-a1-dbc" firstAttribute="leading" secondItem="GM4-W0-GKa" secondAttribute="leading" constant="50" id="mnU-x0-wtZ"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IMa-Yd-yTJ">
                                 <rect key="frame" x="0.0" y="124" width="414" height="772"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -60,8 +99,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </tableViewCell>
                                 </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -72,23 +117,32 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="top" secondItem="Fwa-VJ-tJb" secondAttribute="top" constant="-20" id="Puz-rl-b0B"/>
                             <constraint firstAttribute="trailing" secondItem="IMa-Yd-yTJ" secondAttribute="trailing" id="RET-9k-Dmf"/>
                             <constraint firstItem="IMa-Yd-yTJ" firstAttribute="top" secondItem="qqo-Gp-NyD" secondAttribute="bottom" id="Sbi-vR-RNU"/>
+                            <constraint firstAttribute="trailing" secondItem="GM4-W0-GKa" secondAttribute="trailing" id="Wys-L2-lp5"/>
+                            <constraint firstItem="GM4-W0-GKa" firstAttribute="top" secondItem="qqo-Gp-NyD" secondAttribute="bottom" id="aEs-d3-DMU"/>
                             <constraint firstItem="qqo-Gp-NyD" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="aL6-qu-nfM"/>
+                            <constraint firstAttribute="bottom" secondItem="GM4-W0-GKa" secondAttribute="bottom" id="iVT-2d-hRe"/>
+                            <constraint firstItem="GM4-W0-GKa" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="pU4-Hs-bbz"/>
                             <constraint firstItem="qqo-Gp-NyD" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="uJV-NA-EG7"/>
                             <constraint firstAttribute="trailing" secondItem="qqo-Gp-NyD" secondAttribute="trailing" id="vmr-dl-lo1"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
+                        <outlet property="emptyState" destination="GM4-W0-GKa" id="vmy-Zp-vx5"/>
                         <outlet property="searchBar" destination="Fwa-VJ-tJb" id="2jq-Wd-YGK"/>
                         <outlet property="searchTableView" destination="IMa-Yd-yTJ" id="O9Y-m5-4se"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4" y="74"/>
+            <point key="canvasLocation" x="-4.3478260869565224" y="73.660714285714278"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

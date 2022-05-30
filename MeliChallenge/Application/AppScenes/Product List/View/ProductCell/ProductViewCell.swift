@@ -15,8 +15,8 @@ class ProductViewCell: UITableViewCell {
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productPriceLabel: UILabel!
     
-    static let identifier = Constants.CATEGORY_VIEW_CELL
-    override var reuseIdentifier: String? { return CategoryViewCell.identifier }
+    static let identifier = Constants.PRODUCT_VIEW_CELL
+    override var reuseIdentifier: String? { return ProductViewCell.identifier }
     
     var product: Results? {
         didSet {

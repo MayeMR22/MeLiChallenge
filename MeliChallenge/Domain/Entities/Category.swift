@@ -10,8 +10,13 @@ import Foundation
 struct Category : Decodable{
     let id: String?
     let name: String?
+    
     private enum CodingKeys: String, CodingKey {
         case id
         case name
+    }
+    
+    static func getModelCategoryBasic() -> Category {
+        return Category(id: "", name: "")
     }
 }
