@@ -36,20 +36,20 @@ class SearchProductViewController: UIViewController {
     
     private func observerSearchStatus() {
         searchProductViewModel.onDidChangeSearchStatus = { [weak self] status in
+            guard let self = self else { return }
             switch status {
             case .idle, .loading:
                 break
             case .success:
                 DispatchQueue.main.async {
-                    let aaa = self?.searchProductViewModel.searchProduct.count ?? 0
-                    self?.emptyState.isHidden = !(aaa == 0)
-                    self?.searchTableView.isHidden = !(aaa > 0)
-                    self?.searchTableView.reloadData()
-                    self?.view.hideSkeleton()
+                    self.statusEmptyStateAndSearchTable()
                 }
                 return
-            case .failure:
-                print("aaa")
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    AlertInfo.show(controller: self, message: error)
+                }
+                return
             }
         }
     }
@@ -62,15 +62,26 @@ class SearchProductViewController: UIViewController {
         searchTableView.estimatedRowHeight = 120
     }
     
+    private func statusEmptyStateAndSearchTable() {
+        let productCount = self.searchProductViewModel.searchProduct.count
+        self.emptyState.isHidden = productCount > 0
+        self.searchTableView.isHidden = productCount == 0
+        self.searchTableView.reloadData()
+        self.view.hideSkeleton()
+        self.isPaginating = true
+        self.searchTableView.isUserInteractionEnabled = true
+    }
+}
+// MARK: - Action
+extension SearchProductViewController {
     @IBAction func closePressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
 }
 // MARK: - SearchBar Delegate
 extension SearchProductViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        isPaginating = true
+        isPaginating = false
         self.view.showAnimatedGradientSkeleton()
         searchProductViewModel.searchProduct(search: searchBar.text, fetchMore: false)
     }
@@ -99,23 +110,25 @@ extension SearchProductViewController: UITableViewDelegate {
         delegate?.searchProduct(productSelect: productSelect)
         dismiss(animated: true, completion: nil)
     }
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        print("sdsd")
-//    }
 }
 // MARK: - Scroll ViewDelegate
 extension SearchProductViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
+        guard isPaginating else { return }
         let height = scrollView.frame.size.height
         let contentYoffset = scrollView.contentOffset.y
         let distanceFromBottom = scrollView.contentSize.height - contentYoffset
-        //guard isPaginating else { return }
         if (distanceFromBottom < height) && contentYoffset > currentOffset {
             currentOffset = contentYoffset
             isPaginating = true
-            print("scroll more")
-            //searchProductViewModel.searchProduct(search: searchBar.text, fetchMore: true)
+            searchTableView.isUserInteractionEnabled = false
+            let lastIndex = searchProductViewModel.searchProduct.count - 1
+            for index in (lastIndex - 2)...lastIndex {
+                if let cell = searchTableView.cellForRow(at: IndexPath(row: index, section: 0)) {
+                    cell.showAnimatedGradientSkeleton()
+                }
+            }
+            searchProductViewModel.searchProduct(search: searchBar.text, fetchMore: true)
         }
     }
 }

@@ -47,17 +47,20 @@ class ProductDetailViewController: MeLiCustomNavigationViewController {
     
     private func observerDescriptionStatus() {
         productDetailViewModel.onDidChangeDescriptionStatus = { [weak self] status in
+            guard let self = self else { return }
             switch status {
             case .idle, .loading:
-                self?.view.showAnimatedGradientSkeleton()
+                self.view.showAnimatedGradientSkeleton()
             case .success:
                 DispatchQueue.main.async {
-                    self?.productDescription.text = self?.productDetailViewModel.productDescription
-                    self?.view.hideSkeleton()
+                    self.productDescription.text = self.productDetailViewModel.productDescription
+                    self.view.hideSkeleton()
                 }
                 return
-            case .failure:
-                print("aaa")
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    AlertInfo.show(controller: self, message: error)
+                }
             }
         }
     }

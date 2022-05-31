@@ -23,19 +23,18 @@ class ProductDetailViewModel {
     
     func productDescription(itemId: String?) {
         guard let itemId = itemId else {
-            descriptionStatus = .failure
+            descriptionStatus = .failure(APINetworkError.noFound.localizedDescription)
             return
         }
         self.descriptionStatus = .loading
         productDescriptionUseCase.execute(id: itemId) { [weak self] (description, error)  in
-            if error != nil {
-                self?.descriptionStatus = .failure
+            if let error = error {
+                self?.descriptionStatus = .failure(error.localizedDescription)
             }
             if let description = description {
                 self?.productDescription = description.plainText
                 self?.descriptionStatus = .success
             }
         }
-        
     }
 }

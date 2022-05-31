@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Category : Decodable{
+struct CategoryModel : Decodable{
     let id: String?
     let name: String?
     
@@ -16,7 +16,7 @@ struct Category : Decodable{
         case name
     }
     
-    static func getModelCategoryBasic() -> Category {
-        return Category(id: "", name: "")
+    static func getModelCategoryBasic() -> CategoryModel {
+        return CategoryModel(id: "", name: "")
     }
 }

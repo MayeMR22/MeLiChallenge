@@ -25,18 +25,26 @@ class SearchProductViewModel {
     
     func searchProduct(search: String?, fetchMore: Bool) {
         guard let search = search else {
-            searchStatus = .failure
+            searchStatus = .failure(APINetworkError.noFound.localizedDescription)
             return
         }
-        setupSearchShimmer()
-        searchStatus = .loading
+        if !fetchMore {
+            setupSearchShimmer()
+        }
         searchProductUseCase.execute(parameter: .init(searchText: search, offset: offset)) { [weak self] (search, error) in
-            if error != nil {
-                self?.searchStatus = .failure
+            if let error = error {
+                self?.searchProduct = []
+                self?.searchStatus = .failure(error.localizedDescription)
             }
             if let search = search {
                 self?.searchResult = search
-                self?.searchProduct = search.results ?? []
+                if fetchMore {
+                    search.results?.forEach { item in
+                        self?.searchProduct.append(item)
+                    }
+                } else {
+                    self?.searchProduct = search.results ?? []
+                }
                 self?.setupPagination(pagination: search.paging, fetchMore: fetchMore)
                 self?.searchStatus = .success
             }
@@ -48,10 +56,7 @@ class SearchProductViewModel {
             let totalPage = pagination.primaryResults
             if offset < totalPage {
                 self.offset += 20
-                print(offset)
             }
-        } else {
-            print(offset)
         }
     }
     

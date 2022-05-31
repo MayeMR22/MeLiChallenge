@@ -8,7 +8,7 @@
 import Foundation
 
 protocol GetCategoryUseCase {
-    func execute(completion: @escaping ([Category]?, Error?) -> Void)
+    func execute(completion: @escaping ([CategoryModel]?, Error?) -> Void)
 }
 
 class GetCategoryUseCaseImpl: GetCategoryUseCase {
@@ -18,7 +18,7 @@ class GetCategoryUseCaseImpl: GetCategoryUseCase {
     init(repository : CategoryRepository = CategoryRepositoryImpl()) {
         self.repository = repository
     }
-    func execute(completion: @escaping ([Category]?, Error?) -> Void) {
+    func execute(completion: @escaping ([CategoryModel]?, Error?) -> Void) {
         repository.getCategoryList { (category, error) in
             completion(category, error)
         }

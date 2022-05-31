@@ -74,5 +74,5 @@ enum ProcessStatus {
     case idle
     case loading
     case success
-    case failure
+    case failure(String)
 }
