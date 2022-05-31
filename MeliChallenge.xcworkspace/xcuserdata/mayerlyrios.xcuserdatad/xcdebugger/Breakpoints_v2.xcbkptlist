@@ -116,5 +116,179 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "94F15F55-759F-449C-94ED-D2699F7C48E4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MeliChallengeTests/Application/AppScenes/ProductListViewModelTest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "ProductListViewModelTest"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3080A658-0562-43D2-9722-E6992B950F16"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MeliChallengeTests/Application/AppScenes/ProductListViewModelTest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "ProductListViewModelTest"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9888963F-1DF4-4EF9-973D-08CBB8112F8D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MeliChallengeTests/Application/AppScenes/ProductListViewModelTest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "test_pr()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9888963F-1DF4-4EF9-973D-08CBB8112F8D - 8afa9d51be9bf3bc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MeliChallenge.ProcessStatus) -&gt; () in MeliChallengeTests.ProductListViewModelTest.test_pr() -&gt; ()"
+                  moduleName = "MeliChallengeTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mayerlyrios/Documents/Maye/MeLi/MeliChallengeTests/Application/AppScenes/ProductListViewModelTest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "86">
+               </Location>
+               <Location
+                  uuid = "9888963F-1DF4-4EF9-973D-08CBB8112F8D - 8afa9d51be9bf200"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MeliChallenge.ProcessStatus) -&gt; () in MeliChallengeTests.ProductListViewModelTest.test_pr() -&gt; ()"
+                  moduleName = "MeliChallengeTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mayerlyrios/Documents/Maye/MeLi/MeliChallengeTests/Application/AppScenes/ProductListViewModelTest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "221">
+               </Location>
+               <Location
+                  uuid = "9888963F-1DF4-4EF9-973D-08CBB8112F8D - 8afa9d51be9bf200"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MeliChallenge.ProcessStatus) -&gt; () in MeliChallengeTests.ProductListViewModelTest.test_pr() -&gt; ()"
+                  moduleName = "MeliChallengeTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mayerlyrios/Documents/Maye/MeLi/MeliChallengeTests/Application/AppScenes/ProductListViewModelTest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "62">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7CC92130-A9BF-4C35-88C6-1A6663A30C36"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MeliChallengeTests/Application/AppScenes/ProductListViewModelTest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "test_pr()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7CC92130-A9BF-4C35-88C6-1A6663A30C36 - 8afa9d51be9bf338"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MeliChallenge.ProcessStatus) -&gt; () in MeliChallengeTests.ProductListViewModelTest.test_pr() -&gt; ()"
+                  moduleName = "MeliChallengeTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mayerlyrios/Documents/Maye/MeLi/MeliChallengeTests/Application/AppScenes/ProductListViewModelTest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "7CC92130-A9BF-4C35-88C6-1A6663A30C36 - 8afa9d51be9bf338"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MeliChallenge.ProcessStatus) -&gt; () in MeliChallengeTests.ProductListViewModelTest.test_pr() -&gt; ()"
+                  moduleName = "MeliChallengeTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mayerlyrios/Documents/Maye/MeLi/MeliChallengeTests/Application/AppScenes/ProductListViewModelTest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "7CC92130-A9BF-4C35-88C6-1A6663A30C36 - 8afa9d51be9bf338"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MeliChallenge.ProcessStatus) -&gt; () in MeliChallengeTests.ProductListViewModelTest.test_pr() -&gt; ()"
+                  moduleName = "MeliChallengeTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mayerlyrios/Documents/Maye/MeLi/MeliChallengeTests/Application/AppScenes/ProductListViewModelTest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D343016B-E07A-4709-86DC-516915AAD4DC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MeliChallengeTests/Application/AppScenes/ProductListViewModelTest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "test_pr()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

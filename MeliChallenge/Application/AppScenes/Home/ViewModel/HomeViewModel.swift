@@ -8,7 +8,7 @@
 import Foundation
 
 class HomeViewModel {
-    var categoryList: [Category] = []
+    var categoryList: [CategoryModel] = []
     let getCategoryUseCase: GetCategoryUseCase
     
     var onDidChangeCategoryStatus: ((ProcessStatus) -> Void)?
@@ -24,8 +24,9 @@ class HomeViewModel {
         setupCategoryShimmer()
         categoryStatus = .loading
         getCategoryUseCase.execute { [weak self] (category, error) in
-            if error != nil {
-                self?.categoryStatus = .failure
+            if let error = error {
+                self?.categoryList = []
+                self?.categoryStatus = .failure(error.localizedDescription)
             }
             if let category = category {
                 self?.categoryList = category
@@ -35,6 +36,6 @@ class HomeViewModel {
     }
     
     func setupCategoryShimmer() {
-        categoryList = Array(repeating: Category.getModelCategoryBasic(), count: 6)
+        categoryList = Array(repeating: CategoryModel.getModelCategoryBasic(), count: 6)
     }
 }

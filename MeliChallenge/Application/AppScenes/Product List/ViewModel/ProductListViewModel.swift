@@ -26,14 +26,14 @@ class ProductListViewModel {
     
     func getProductByCategory(id : String?) {
         guard let categoryId = id else {
-            productStatus = .failure
+            productStatus = .failure("APINetworkError.noFound.localizedDescription")
             return
         }
         setupShimmerProduct()
         productStatus = .loading
         producByCategoryUseCase.execute(parameter: .init(categoryId: categoryId)) { [weak self] (product, error)  in
-            if error != nil {
-                self?.productStatus = .failure
+            if let error = error {
+                self?.productStatus = .failure(error.localizedDescription)
             }
             if let product = product {
                 self?.productResult = product.results ?? []

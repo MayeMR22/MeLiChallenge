@@ -14,7 +14,7 @@ class CategoryViewCell: UICollectionViewCell {
     static let identifier = Constants.CATEGORY_VIEW_CELL
     override var reuseIdentifier: String? { return CategoryViewCell.identifier }
     
-    var category: Category? {
+    var category: CategoryModel? {
         didSet {
             setupView()
         }

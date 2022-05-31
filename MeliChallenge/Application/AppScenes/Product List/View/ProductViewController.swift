@@ -13,7 +13,7 @@ class ProductViewController: MeLiCustomNavigationViewController {
     @IBOutlet weak var productTableView: UITableView!
     
     var productListViewModel = ProductListViewModel()
-    var productCategory: Category?
+    var productCategory: CategoryModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,6 @@ class ProductViewController: MeLiCustomNavigationViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         productListViewModel.getProductByCategory(id: productCategory?.id)
-        print("viewWillAppear")
     }
     
     private func setupInitialView() {
@@ -48,18 +47,20 @@ class ProductViewController: MeLiCustomNavigationViewController {
     
     private func observerStatusProduct() {
         productListViewModel.onDidChangeProductStatus = { [weak self] status in
+            guard let self = self else { return }
             switch status {
             case .idle, .loading:
-                self?.view.showAnimatedGradientSkeleton()
-                print("loading")
+                self.view.showAnimatedGradientSkeleton()
             case .success:
                 DispatchQueue.main.async {
-                    self?.productTableView.reloadData()
-                    self?.view.hideSkeleton()
+                    self.productTableView.reloadData()
+                    self.view.hideSkeleton()
                 }
                 return
-            case .failure:
-                print("aaa")
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    AlertInfo.show(controller: self, message: error)
+                }
             }
         }
     }

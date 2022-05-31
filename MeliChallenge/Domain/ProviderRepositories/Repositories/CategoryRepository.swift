@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CategoryRepository {
-    func getCategoryList(completion: @escaping ([Category]?, Error?) -> Void)
+    func getCategoryList(completion: @escaping ([CategoryModel]?, Error?) -> Void)
 }

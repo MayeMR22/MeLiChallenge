@@ -57,7 +57,7 @@ struct Results: Decodable {
     let attributes: [Attributes]?
     let originalPrice: Float?
     let categoryId: String?
-    var shimmer: Bool?
+    var shimmer: Bool? = true
 
     private enum CodingKeys: String, CodingKey {
         case id
@@ -84,7 +84,7 @@ struct Results: Decodable {
         case shimmer
     }
     
-    static func getModelResultBasic(shimmer: Bool = true) -> Results {
+    static func getModelResultBasic(shimmer: Bool = false) -> Results {
         return Results(id: "", siteId: "", title: "", seller: nil, price: 0, prices: nil, salePrice: 0, currencyId: "", availableQuantity: 0, soldQuantity: 0, buyingMode: "", listingTypeId: "", stopTime: "", condition: "", permalink: "", thumbnail: "", acceptsMercadopago: false, installments: nil, attributes: nil, originalPrice: 0, categoryId: "", shimmer: shimmer)
     }
 }

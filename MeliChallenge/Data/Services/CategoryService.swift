@@ -13,7 +13,7 @@ enum CategoryService {
 
 extension CategoryService: ServiceContract {
     var baseURL: String {
-        return "https://api.mercadolibre.com/"
+        return Constants.URL_BASE_MELI
     }
     var path: String? {
         switch self {
