@@ -7,6 +7,7 @@
 
 import UIKit
 import SkeletonView
+import Network
 
 class HomeViewController: MeLiCustomNavigationViewController {
     
@@ -19,13 +20,19 @@ class HomeViewController: MeLiCustomNavigationViewController {
         customNavBar.delegate = self
         setupCollectionViews()
         observerCategoryStatus()
+        setUpEventDelegateNetworkMonitor()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        guard NetworkMonitor.shared.isNetworkAvailable() else { return }
         viewModel.getCategory()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NetworkMonitor.shared.stop()
+    }
     
     private func setupCollectionViews() {
         categoryCollectionView.delegate = self
@@ -51,8 +58,13 @@ class HomeViewController: MeLiCustomNavigationViewController {
             }
         }
     }
+    
+    func setUpEventDelegateNetworkMonitor() {
+        NetworkMonitor.shared.delegate = self
+        NetworkMonitor.shared.start()
+    }
 }
-
+// MARK: - UICollectionViewDelegate & CollectionViewDataSource
 extension HomeViewController: SkeletonCollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return Constants.CATEGORY_VIEW_CELL
@@ -81,5 +93,13 @@ extension HomeViewController: SkeletonCollectionViewDataSource, UICollectionView
          let settings: (items: Int, columns: CGFloat, horizontalSpacing: CGFloat, verticalSpacing: CGFloat) = (aaa, 4, 24, 16)
         let cellWidth = collectionView.bounds.width/settings.columns - ((settings.columns - 1)*settings.horizontalSpacing)/settings.columns
         return CGSize(width: cellWidth, height: 120)
+    }
+}
+// MARK: - NetworkMonitor Delegate
+extension HomeViewController: NetworkMonitorDelegate {
+    func networkMonitor(didChangeStatus status: NWPath.Status) {
+        if status != .satisfied {
+            AlertInfo.show(controller: self, message: Constants.MESSAGE_NETWORK)
+        }
     }
 }

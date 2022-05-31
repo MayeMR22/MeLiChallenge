@@ -24,7 +24,8 @@ extension ProductService: ServiceContract {
         case .searchProduct(search: let search):
             let text = search.searchText ?? ""
             let offset = search.offset ?? 0
-            return "sites/MCO/search?q=\(text)&limit=20&offset=\(offset)"
+            let url = "sites/MCO/search?q=\(text)&limit=20&offset=\(offset)"
+            return url.replacingOccurrences(of: " ", with: "%")
         case .productDescription(id: let id):
             return "items/\(id)/description"
         }

@@ -15,7 +15,6 @@ class CategoryRepositoryImpl: CategoryRepository {
                 completion(success, nil)
                 return
             case .failure(let failure):
-                print(failure.localizedDescription)
                 completion(nil, failure)
                 return
             }

@@ -11,4 +11,5 @@ public enum Constants {
     static let CATEGORY_VIEW_CELL = "CategoryViewCell"
     static let PRODUCT_VIEW_CELL = "ProductViewCell"
     static let URL_BASE_MELI = "https://api.mercadolibre.com/"
+    static let MESSAGE_NETWORK = "Parece que tienes problema de conexión asegurate de que estes conectado a internet."
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 import SkeletonView
+import Network
 
 class ProductViewController: MeLiCustomNavigationViewController {
 
@@ -20,14 +21,15 @@ class ProductViewController: MeLiCustomNavigationViewController {
         setupInitialView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        guard NetworkMonitor.shared.isNetworkAvailable() else { return }
         productListViewModel.getProductByCategory(id: productCategory?.id)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NetworkMonitor.shared.stop()
     }
     
     private func setupInitialView() {
@@ -35,6 +37,7 @@ class ProductViewController: MeLiCustomNavigationViewController {
         customNavBar.setupTitleNavBar(title: productCategory?.name)
         observerStatusProduct()
         setupTableView()
+        setUpEventDelegateNetworkMonitor()
     }
     
     private func setupTableView() {
@@ -64,6 +67,11 @@ class ProductViewController: MeLiCustomNavigationViewController {
             }
         }
     }
+    
+    func setUpEventDelegateNetworkMonitor() {
+        NetworkMonitor.shared.delegate = self
+        NetworkMonitor.shared.start()
+    }
 }
 // MARK: - UITableViewDataSource
 extension ProductViewController: SkeletonTableViewDataSource {
@@ -89,6 +97,14 @@ extension ProductViewController: UITableViewDelegate {
         if let productDetailVC = storyboard.instantiateViewController(withIdentifier: "ProductDetail") as? ProductDetailViewController {
             productDetailVC.product = productListViewModel.productResult[indexPath.row]
             navigationController?.pushViewController(productDetailVC, animated: true)
+        }
+    }
+}
+// MARK: - NetworkMonitor Delegate
+extension ProductViewController: NetworkMonitorDelegate {
+    func networkMonitor(didChangeStatus status: NWPath.Status) {
+        if status != .satisfied {
+            AlertInfo.show(controller: self, message: Constants.MESSAGE_NETWORK)
         }
     }
 }

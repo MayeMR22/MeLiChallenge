@@ -20,6 +20,7 @@
 		6626B07A2845F13B005B0600 /* MockSearchProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6626B0792845F13B005B0600 /* MockSearchProductUseCase.swift */; };
 		6626B07D2845F4AF005B0600 /* ProductDetailTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6626B07C2845F4AF005B0600 /* ProductDetailTest.swift */; };
 		6626B07F2845F54B005B0600 /* MockProductDescriptionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6626B07E2845F54B005B0600 /* MockProductDescriptionUseCase.swift */; };
+		6626B08128465B21005B0600 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6626B08028465B21005B0600 /* NetworkMonitor.swift */; };
 		6656427A283C413600FAEFA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66564279283C413600FAEFA2 /* AppDelegate.swift */; };
 		6656427C283C413600FAEFA2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6656427B283C413600FAEFA2 /* SceneDelegate.swift */; };
 		66564283283C413B00FAEFA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66564282283C413B00FAEFA2 /* Assets.xcassets */; };
@@ -100,6 +101,7 @@
 		6626B0792845F13B005B0600 /* MockSearchProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSearchProductUseCase.swift; sourceTree = "<group>"; };
 		6626B07C2845F4AF005B0600 /* ProductDetailTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailTest.swift; sourceTree = "<group>"; };
 		6626B07E2845F54B005B0600 /* MockProductDescriptionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProductDescriptionUseCase.swift; sourceTree = "<group>"; };
+		6626B08028465B21005B0600 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		66564276283C413600FAEFA2 /* MeliChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeliChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66564279283C413600FAEFA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6656427B283C413600FAEFA2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 				665F982C28416B2D0048EBE8 /* Extension */,
 				665F98332841B1790048EBE8 /* Custom UI  */,
 				6698D5F6283EE6E200D824A7 /* Constants.swift */,
+				6626B08028465B21005B0600 /* NetworkMonitor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -925,6 +928,7 @@
 				66E3081C28402ECC007D9029 /* ProductDetailViewModel.swift in Sources */,
 				665642AF283C8EFC00FAEFA2 /* CategoryModel.swift in Sources */,
 				665F982728412FC00048EBE8 /* SearchProductViewModel.swift in Sources */,
+				6626B08128465B21005B0600 /* NetworkMonitor.swift in Sources */,
 				6698D5FE283F220D00D824A7 /* MeLiCustomNavigationBar.swift in Sources */,
 				66AA221A283DA75200624FBF /* ServiceContract.swift in Sources */,
 				665F982B28414C680048EBE8 /* SearchProduct.swift in Sources */,
