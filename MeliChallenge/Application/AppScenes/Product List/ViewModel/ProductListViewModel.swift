@@ -26,7 +26,7 @@ class ProductListViewModel {
     
     func getProductByCategory(id : String?) {
         guard let categoryId = id else {
-            productStatus = .failure("APINetworkError.noFound.localizedDescription")
+            productStatus = .failure(APINetworkError.invalidData.localizedDescription)
             return
         }
         setupShimmerProduct()

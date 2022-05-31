@@ -8,6 +8,7 @@
 import UIKit
 import SDWebImage
 import SkeletonView
+import Network
 
 class ProductDetailViewController: MeLiCustomNavigationViewController {
 
@@ -23,11 +24,18 @@ class ProductDetailViewController: MeLiCustomNavigationViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInitialView()
+        setUpEventDelegateNetworkMonitor()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        guard NetworkMonitor.shared.isNetworkAvailable() else { return }
         productDetailViewModel.productDescription(itemId: product?.id)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NetworkMonitor.shared.stop()
     }
     
     private func setupInitialView() {
@@ -62,6 +70,19 @@ class ProductDetailViewController: MeLiCustomNavigationViewController {
                     AlertInfo.show(controller: self, message: error)
                 }
             }
+        }
+    }
+    
+    private func setUpEventDelegateNetworkMonitor() {
+        NetworkMonitor.shared.delegate = self
+        NetworkMonitor.shared.start()
+    }
+}
+// MARK: - NetworkMonitor Delegate
+extension ProductDetailViewController: NetworkMonitorDelegate {
+    func networkMonitor(didChangeStatus status: NWPath.Status) {
+        if status != .satisfied {
+            AlertInfo.show(controller: self, message: Constants.MESSAGE_NETWORK)
         }
     }
 }

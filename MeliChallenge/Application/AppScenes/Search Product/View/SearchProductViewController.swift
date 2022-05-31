@@ -7,6 +7,7 @@
 
 import UIKit
 import SkeletonView
+import Network
 
 class SearchProductViewController: UIViewController {
     
@@ -23,6 +24,12 @@ class SearchProductViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInitialView()
+        setUpEventDelegateNetworkMonitor()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NetworkMonitor.shared.stop()
     }
     
     private func setupInitialView() {
@@ -71,6 +78,11 @@ class SearchProductViewController: UIViewController {
         self.isPaginating = true
         self.searchTableView.isUserInteractionEnabled = true
     }
+    
+    private func setUpEventDelegateNetworkMonitor() {
+        NetworkMonitor.shared.delegate = self
+        NetworkMonitor.shared.start()
+    }
 }
 // MARK: - Action
 extension SearchProductViewController {
@@ -82,6 +94,7 @@ extension SearchProductViewController {
 extension SearchProductViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         isPaginating = false
+        guard NetworkMonitor.shared.isNetworkAvailable() else { return }
         self.view.showAnimatedGradientSkeleton()
         searchProductViewModel.searchProduct(search: searchBar.text, fetchMore: false)
     }
@@ -141,6 +154,14 @@ extension SearchProductViewController {
         searchEngineVC.modalTransitionStyle = .crossDissolve
         searchEngineVC.delegate = delegate
         controller.present(searchEngineVC, animated: true, completion: nil)
+    }
+}
+// MARK: - NetworkMonitor Delegate
+extension SearchProductViewController: NetworkMonitorDelegate {
+    func networkMonitor(didChangeStatus status: NWPath.Status) {
+        if status != .satisfied {
+            AlertInfo.show(controller: self, message: Constants.MESSAGE_NETWORK)
+        }
     }
 }
 
